@@ -1,0 +1,43 @@
+spring:
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 30MB
+  web:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+  datasource:
+    url: jdbc:postgresql://192.168.0.10:5432/postgres
+    username: postgres
+    password: lengle890!
+    hikari:
+      maximum-pool-size: 4
+      connection-init-sql: SET TIME ZONE 'Asia/Seoul'
+
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    database: postgresql
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Seoul
+
+backup:
+  batch:
+    interval: 3600000
+  directory: ./hrbank05/file/backup
+
+file:
+  upload-dir: ./hrbank05/file/backup
+
+demo:
+  storage:
+    type: local
+    local:
+      root-path: C:/storage/binary
